@@ -9,7 +9,7 @@ dwm_wpa() {
       'COMPLETED')
          CONSSID=$(wpa_cli status | sed -n '/\<ssid\>/s/^.*=//p')
          CONIP=$(wpa_cli status | sed -n '/ip_address/s/^.*=//p')
-         CONRSSI=$(wpa_cli signal_poll | sed -n '/AVG_RSSI/s/^.*=//p')
+         CONRSSI=$(wpa_cli signal_poll | sed -n '/RSSI/s/^.*=//p')
          if [ "$CONRSSI" -gt -35 ]; then   
             printf "%s" "$SEP1"
             printf "\uF927 %s %s" "$CONSSID" "$CONIP"
